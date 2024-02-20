@@ -9,18 +9,7 @@ pipeline {
                 git url:'https://github.com/Salmansadiq809545/Capstone-Project'
             }
         }
-        stage('Build') {
-            steps {
-                sh 'npm install'
-                // sh 'npm run build'
-            }
-        }
-        stage('Test') {
-            steps {
-                // sh 'npm run test'
-                echo "Test"
-            }
-        }
+        
         stage('Build Image') {
             steps {
                 sh 'docker build -t reactimage .'
