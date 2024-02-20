@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment11
+metadata:
+  name: pro
+  labels:
+    app: bank1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bank1
+  template:
+    metadata:
+      labels:
+        app: bank1
+    spec:
+      containers:
+      - name: salmanreact
+        image: salman8095/newimg:v2
+        ports:
+        - containerPort: 5000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  type: NodePort
+  selector:
+    app: bank1
+  ports:
+    - port: 8092
+      # By default and for convenience, the `targetPort` is set to
+      # the same value as the `port` field.
+      targetPort: 8092
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane
+      # will allocate a port from a range (default: 30000-32767)
+      nodePort: 32000
