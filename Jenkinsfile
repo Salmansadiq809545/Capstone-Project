@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    tools {
-        nodejs 'nodejs'
-    }
+    
     stages {
         stage('checkout') {
             steps {
@@ -20,7 +18,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    def dockerCmd = 'docker run -itd --name My-first-container -p 3000:3000 akshu20791/dev:latest'
+                   sh 'docker run -itd --name My-first-container -p 3000:3000 akshu20791/dev:latest'
                     
                 }
             }
