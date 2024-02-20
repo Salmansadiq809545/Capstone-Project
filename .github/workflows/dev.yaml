@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-        - "Dev"
+        - "master"
     paths:
         - ".github/workflows/dev.yaml"
 
